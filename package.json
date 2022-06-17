@@ -26,7 +26,6 @@
   "scripts": {
     "build": "tsc",
     "lint": "npm run prettier && npm run standard",
-    "precommit": "lint-staged",
     "prepublish": "npm run build",
     "prettier": "prettier --write --loglevel warn ./**/*.ts",
     "standard": "tslint -c tslint.json --project tsconfig.json --fix ./**/*.ts"
@@ -51,5 +50,10 @@
   },
   "peerDependencies": {
     "tslib": "^1.9.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
