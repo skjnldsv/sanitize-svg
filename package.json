@@ -25,9 +25,9 @@
   },
   "scripts": {
     "build": "tsc",
-    "lint": "npm prettier && npm standard",
+    "lint": "npm run prettier && npm run standard",
     "precommit": "lint-staged",
-    "prepublish": "npm build",
+    "prepublish": "npm run build",
     "prettier": "prettier --write --loglevel warn ./**/*.ts",
     "standard": "tslint -c tslint.json --project tsconfig.json --fix ./**/*.ts"
   },
