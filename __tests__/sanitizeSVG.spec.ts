@@ -16,7 +16,7 @@ describe('sanitizeSVG string', () => {
 	})
 })
 
-describe('sanitizeSVG buffer', () => {
+describe('sanitizeSVG Buffer', () => {
 	test('Clean svg', async () => {
 		const cleanSvg = Buffer.from((readFileSync(join(__dirname, 'clean-svg.svg'), 'utf8')))
 		const svg = await sanitizeSVG(cleanSvg)
@@ -26,6 +26,24 @@ describe('sanitizeSVG buffer', () => {
 	test('Evil svg', async () => {
 		const evilSvg = Buffer.from((readFileSync(join(__dirname, 'evil-svg.svg'), 'utf8')))
 		const svg = await sanitizeSVG(evilSvg)
+		expect(svg).toBeNull()
+	})
+})
+
+describe('sanitizeSVG File', () => {
+	test('Clean svg', async () => {
+		const cleanSvg = Buffer.from((readFileSync(join(__dirname, 'clean-svg.svg'), 'utf8')))
+		const blob = new Blob([cleanSvg])
+		const file = new File([blob as BlobPart], 'clean-svg.svg')
+		const svg = await sanitizeSVG(file)
+		expect(svg).toBe(file)
+	})
+
+	test('Evil svg', async () => {
+		const evilSvg = Buffer.from((readFileSync(join(__dirname, 'evil-svg.svg'), 'utf8')))
+		const blob = new Blob([evilSvg])
+		const file = new File([blob as BlobPart], 'evil-svg.svg')
+		const svg = await sanitizeSVG(file)
 		expect(svg).toBeNull()
 	})
 })

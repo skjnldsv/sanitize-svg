@@ -17,20 +17,20 @@ const isFile = (obj: File | Buffer): obj is File => {
 	return (obj as File).size !== undefined
 }
 
-export const sanitizeSVG = async (svg: Buffer | string | null) => {
-	if (!svg || !isSvg(svg)) {
+export const sanitizeSVG = async (svg: Buffer | File | string | null) => {
+	if (!svg) {
 		throw new Error('Not an svg')
 	}
 
 	let svgText = ''
-	if (svg instanceof Buffer) {
+	if (svg instanceof Buffer || svg instanceof File) {
 		svgText = await readAsText(svg) as string
 	} else {
 		svgText = svg
 	}
 
-	if (!svgText) {
-		throw new Error('Image corrupt')
+	if (!isSvg(svgText)) {
+		throw new Error('Not an svg')
 	}
 
 	const div = document.createElement('div')
