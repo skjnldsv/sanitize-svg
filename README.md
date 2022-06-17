@@ -1,4 +1,4 @@
-# sanitize-svg
+# sanitize-svg [![npm last version](https://img.shields.io/npm/v/@skjnldsv/sanitize-svg.svg?style=flat-square)](https://www.npmjs.com/package/@skjnldsv/sanitize-svg) ![Codecov](https://img.shields.io/codecov/c/github/skjnldsv/sanitize-svg?style=flat-square)
 
 a small SVG sanitizer to prevent XSS attacks
 
