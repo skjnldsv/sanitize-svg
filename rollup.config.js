@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 
 const external = [
+	'buffer',
 	'is-svg',
 ]
 
