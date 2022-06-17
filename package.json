@@ -1,6 +1,6 @@
 {
   "name": "@skjnldsv/sanitize-svg",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a small script to remove script tags from SVGs",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
