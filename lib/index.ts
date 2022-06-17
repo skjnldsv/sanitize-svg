@@ -23,7 +23,7 @@ export const sanitizeSVG = async (svg: Buffer | File | string | null) => {
 	}
 
 	let svgText = ''
-	if (svg instanceof Buffer || svg instanceof File) {
+	if (Buffer.isBuffer(svg) || svg instanceof File) {
 		svgText = await readAsText(svg) as string
 	} else {
 		svgText = svg
