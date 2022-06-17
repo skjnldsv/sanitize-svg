@@ -20,13 +20,14 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=6.0.0"
+    "node": "^14"
+    "npm": "^7"
   },
   "scripts": {
     "build": "tsc",
-    "lint": "yarn prettier && yarn standard",
+    "lint": "npm prettier && npm standard",
     "precommit": "lint-staged",
-    "prepublish": "yarn build",
+    "prepublish": "npm build",
     "prettier": "prettier --write --loglevel warn ./**/*.ts",
     "standard": "tslint -c tslint.json --project tsconfig.json --fix ./**/*.ts"
   },
