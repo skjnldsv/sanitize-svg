@@ -28,7 +28,14 @@ The output file will be null
 ```js
 import { sanitizeSVG } from '@skjnldsv/sanitize-svg'
 
-// file input onSubmit handler
+// String svg
+const svg = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1"><path ...'
+const cleanImage = await sanitizeSVG(attachedImage)
+if (!cleanImage) {
+	alert('Howdy, hacker')
+}
+
+// File input onSubmit handler
 const onSubmit = async (e) => {
 	const attachedImage = e.currentTarget.files[0]
 	const cleanImage = await sanitizeSVG(attachedImage)
