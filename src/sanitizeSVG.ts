@@ -1,4 +1,5 @@
 const getWindow = () => (typeof window === 'undefined' ? null : window)
+
 const readAsText = (svg: File | Buffer) =>
   new Promise<string | null>((resolve) => {
     if (!isFile(svg)) {
