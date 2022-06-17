@@ -4,9 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 
 const external = [
-	'@nextcloud/auth',
-	'@nextcloud/l10n',
-	'@nextcloud/logger',
+	'is-svg',
 ]
 
 const config = output => ({
