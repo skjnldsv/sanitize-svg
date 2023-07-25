@@ -26,12 +26,12 @@ const config = output => ({
 
 export default [
 	{
-		dir: 'dist',
+		file: 'dist/index.cjs',
 		format: 'cjs',
 		sourcemap: true,
 	},
 	{
-		file: 'dist/index.esm.js',
+		file: 'dist/index.es.mjs',
 		format: 'esm',
 		sourcemap: true,
 	},
