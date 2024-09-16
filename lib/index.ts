@@ -1,5 +1,4 @@
 import { Buffer } from 'buffer'
-import isSvg from 'is-svg'
 
 const readAsText = (svg: File | Buffer) =>
 	new Promise<string | null>((resolve) => {
@@ -30,6 +29,8 @@ export const sanitizeSVG = async (svg: Buffer | File | string | null) => {
 		svgText = svg
 	}
 
+	// dynamic import to support CommonJS (package is ESM only)
+	const isSvg = (await import('is-svg')).default
 	if (!isSvg(svgText)) {
 		throw new Error('Not an svg')
 	}
